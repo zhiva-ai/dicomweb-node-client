@@ -17,10 +17,10 @@ The main motivation for this project is:
 
 ## Installation
 
-Install the [dicomweb-client](https://www.npmjs.com/package/dicomweb-client) package using the `npm` package manager:
+Install the [dicomweb-node-client](https://www.npmjs.com/package/dicomweb-node-client) package using the `npm` package manager:
 
 ```None
-npm install dicomweb-client
+npm install dicomweb-node-client
 ```
 
 ## Building and testing
@@ -28,14 +28,40 @@ npm install dicomweb-client
 Build and test code locally:
 
 ```None
-git clone https://github.com/dcmjs-org/dicomweb-client ~/dicomweb-client
-cd ~/dicomweb-client
+git clone https://github.com/zhiva-ai/dicomweb-node-client ~/dicomweb-node-client
+cd ~/dicomweb-node-client
 npm install
 npm run build
-npm test
 ```
 
 ## Usage
+
+### NodeJS
+
+```javascript
+const DICOMWebNodeClient = require('dicomweb-node-client');
+
+const url = 'http://localhost:8080/dicomweb';
+const client = new DICOMwebClient.api.DICOMwebClient({url});
+client.searchForStudies().then(studies => {
+    console.log(studies)
+});
+```
+
+### JS Application
+
+Exactly the same as node, you can import it as `DICOMwebClient` to be inline with original repo.
+```javascript
+import * as DICOMwebClient from 'dicomweb-node-client';
+
+const url = 'http://localhost:8080/dicomweb';
+const client = new DICOMwebClient.api.DICOMwebClient({url});
+client.searchForStudies().then(studies => {
+    console.log(studies)
+});
+```
+
+### Direct browser import
 
 ```html
 <script type="text/javascript" src="https://unpkg.com/dicomweb-client"></script>
@@ -49,42 +75,7 @@ client.searchForStudies().then(studies => {
 });
 ```
 
+## Contributions
 
-## For maintainers
-
-Use `semantic` commit messages to generate releases and change log entries: [Semantic Release: How does it work?](https://semantic-release.gitbook.io/semantic-release/#how-does-it-work)
-
-## Citation
-
-Please cite the following article when using the client for scientific studies: [Herrmann et al. J Path Inform. 2018](http://www.jpathinformatics.org/article.asp?issn=2153-3539;year=2018;volume=9;issue=1;spage=37;epage=37;aulast=Herrmann):
-
-```None
-@article{jpathinform-2018-9-37,
-    Author={
-        Herrmann, M. D. and Clunie, D. A. and Fedorov A. and Doyle, S. W. and Pieper, S. and
-        Klepeis, V. and Le, L. P. and Mutter, G. L. and Milstone, D. S. and Schultz, T. J. and
-        Kikinis, R. and Kotecha, G. K. and Hwang, D. H. and Andriole, K, P. and Iafrate, A. J. and
-        Brink, J. A. and Boland, G. W. and Dreyer, K. J. and Michalski, M. and
-        Golden, J. A. and Louis, D. N. and Lennerz, J. K.
-    },
-    Title={Implementing the {DICOM} standard for digital pathology},
-    Journal={Journal of Pathology Informatics},
-    Year={2018},
-    Number={1},
-    Volume={9},
-    Number={37}
-}
-
-```
-
-## Support
-
-The developers gratefully acknowledge their reseach support:
-* Open Health Imaging Foundation ([OHIF](http://ohif.org))
-* Quantitative Image Informatics for Cancer Research ([QIICR](http://qiicr.org))
-* [Radiomics](http://radiomics.io)
-* The [Neuroimage Analysis Center](http://nac.spl.harvard.edu)
-* The [National Center for Image Guided Therapy](http://ncigt.org)
-* The [MGH & BWH Center for Clinical Data Science](https://www.ccds.io/)
-
-
+We made a for of the original [dicomweb-client](https://www.npmjs.com/package/dicomweb-client) library and extended it with NodeJS support. If you're using this library you don't have to contribute us, but please contribute the amazing people responsible for the original implementation. More details on their GitHub:
+[https://github.com/dcmjs-org/dicomweb-client#citation](https://github.com/dcmjs-org/dicomweb-client#citation)
