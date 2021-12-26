@@ -13,11 +13,9 @@
               const options = {
                 url: "https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs",
                 requestHooks: [
-                  (request, metadata) => {
-                    const requestMetadata = document.createElement('div');
-                    requestMetadata.innerHTML = `Method: ${metadata.method} URL: ${metadata.url}`;
-                    document.getElementById('requests').append(requestMetadata);
-                    return request;
+                  (data, headers) => {
+                    document.getElementById('requests').append(headers);
+                    return data;
                   }
                 ],
               };
@@ -48,11 +46,9 @@
         const options = {
             url: "https://server.dcmjs.org/dcm4chee-arc/aets/DCM4CHEE/rs",
             requestHooks: [
-              (request, metadata) => {
-                const requestMetadata = document.createElement('div');
-                requestMetadata.innerHTML = `Method: ${metadata.method} URL: ${metadata.url}`;
-                document.getElementById('requests').append(requestMetadata);
-                return request;
+              (data, headers) => {
+                document.getElementById('requests').append(headers);
+                return data;
               }
           ],
         };

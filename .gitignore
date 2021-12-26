@@ -64,3 +64,7 @@ yarn.lock
 
 # docker files created by the docker containers for testing
 tmp
+
+**/*.crt
+**/*.key
+**/*.pen

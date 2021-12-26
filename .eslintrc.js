@@ -1,5 +1,8 @@
 module.exports = {
-    "extends": "airbnb-base",
+    "extends": [
+        "airbnb-base",
+        "prettier"
+    ],
     //"plugins": ["prettier"],
     "rules": {
     	"import/extensions": { "js": "always" }, // Better for native ES Module usage

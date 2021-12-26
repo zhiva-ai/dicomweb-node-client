@@ -1,0 +1,16 @@
+{
+  "name": "example-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "npm config set strict-ssl false",
+    "start": "export NODE_TLS_REJECT_UNAUTHORIZED=0 && node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
